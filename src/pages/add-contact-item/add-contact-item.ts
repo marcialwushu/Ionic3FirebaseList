@@ -1,3 +1,4 @@
+import { Item } from './../../models/item/item.model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -14,6 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add-contact-item.html',
 })
 export class AddContactItemPage {
+
+  item: Item = {
+    nome: '',
+    email: '',
+    facebook: undefined,
+    telefone: undefined
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
