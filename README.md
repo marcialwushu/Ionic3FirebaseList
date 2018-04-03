@@ -27,4 +27,15 @@ Misc:
 
 ```
 
+## npm packages 
+
+- firebase 
+- angularfire2
+
+### Install 
+
+```
+ npm install firebase angularfire2 --save
+ 
+```
 
