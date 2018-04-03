@@ -1,6 +1,7 @@
 import { Item } from './../../models/item/item.model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ContactListService } from '../../services/contact-list/contact-list.service';
 
 /**
  * Generated class for the AddContactItemPage page.
@@ -23,11 +24,15 @@ export class AddContactItemPage {
     telefone: undefined
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private contact: ContactListService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddContactItemPage');
+  }
+
+  addItem(item: Item){
+    this.contact.addItem(item);
   }
 
 }

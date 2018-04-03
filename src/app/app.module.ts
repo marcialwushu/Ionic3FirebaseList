@@ -1,3 +1,4 @@
+import { ContactListService } from './../services/contact-list/contact-list.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -29,7 +30,8 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ContactListService
   ]
 })
 export class AppModule {}
