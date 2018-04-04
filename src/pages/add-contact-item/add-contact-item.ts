@@ -32,7 +32,9 @@ export class AddContactItemPage {
   }
 
   addItem(item: Item){
-    this.contact.addItem(item);
+    this.contact.addItem(item).then( ref => {
+      console.log(ref.key);
+    })
   }
 
 }
