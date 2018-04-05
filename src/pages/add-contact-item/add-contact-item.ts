@@ -2,6 +2,7 @@ import { Item } from './../../models/item/item.model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ContactListService } from '../../services/contact-list/contact-list.service';
+import { ToastService } from '../../services/toast/toast.service';
 
 /**
  * Generated class for the AddContactItemPage page.
@@ -24,7 +25,12 @@ export class AddContactItemPage {
     telefone: undefined
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private contact: ContactListService) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private contact: ContactListService,
+    private toast: ToastService
+  ) {
   }
 
   ionViewDidLoad() {
@@ -33,7 +39,9 @@ export class AddContactItemPage {
 
   addItem(item: Item){
     this.contact.addItem(item).then( ref => {
-      console.log(ref.key);
+      this.toast.show(`${item.nome} saved!`);
+      this.navCtrl.setRoot('HomePage', { key: ref.key });
+      
     })
   }
 

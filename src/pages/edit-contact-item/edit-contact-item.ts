@@ -1,3 +1,5 @@
+import { ToastService } from './../../services/toast/toast.service';
+
 import { ContactListService } from './../../services/contact-list/contact-list.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -13,7 +15,12 @@ export class EditContactItemPage {
 
   item: Item;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private contact: ContactListService) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private contact: ContactListService,
+    private toast: ToastService
+  ) {
   }
 
   ionViewWillLoad() {
@@ -23,6 +30,7 @@ export class EditContactItemPage {
   saveItem(item: Item){
     this.contact.editItem(item)
     .then(() => {
+      this.toast.show(`${item.nome} saved!`)
       this.navCtrl.setRoot('HomePage');
     });
   }
