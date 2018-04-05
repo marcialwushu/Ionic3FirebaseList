@@ -16,4 +16,8 @@ export class ContactListService {
     addItem(item: Item){
         return this.contactListRef.push(item);
     }
+
+    editItem(item: Item){
+        return this.contactListRef.update(item.key, item);
+    }
 }

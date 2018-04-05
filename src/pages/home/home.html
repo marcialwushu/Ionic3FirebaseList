@@ -18,7 +18,7 @@
     <ion-list-header>
       Items
     </ion-list-header>
-    <ion-item *ngFor="let item of contactList$ | async">
+    <ion-item *ngFor="let item of contactList$ | async" detail-push navPush="EditContactItemPage" [navParams]="{item:item}">
       {{ item.nome }}
     </ion-item>
   </ion-list>

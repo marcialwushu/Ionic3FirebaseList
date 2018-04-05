@@ -1,0 +1,40 @@
+<!--
+  Generated template for the EditContactItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{item?.nome}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Nome</ion-label>
+    <ion-input [(ngModel)]="item.nome" placeholder="Nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input [(ngModel)]="item.email" placeholder="email@gmail.com"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Facebook</ion-label>
+    <ion-input [(ngModel)]="item.facebook" placeholder="facebook.com/carlos"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Telefone</ion-label>
+    <ion-input [(ngModel)]="item.telefone" placeholder="(85) 98555-5555"></ion-input>
+  </ion-item>
+
+  <button ion-button block clear (click)="saveItem(item)">Save</button>
+
+</ion-content>
