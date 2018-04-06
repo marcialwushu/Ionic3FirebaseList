@@ -20,4 +20,8 @@ export class ContactListService {
     editItem(item: Item){
         return this.contactListRef.update(item.key, item);
     }
+
+    removeItem(item: Item){
+        return this.contactListRef.remove(item.key);
+    }
 }

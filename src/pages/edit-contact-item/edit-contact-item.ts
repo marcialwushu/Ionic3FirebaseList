@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { ToastService } from './../../services/toast/toast.service';
 
 import { ContactListService } from './../../services/contact-list/contact-list.service';
@@ -33,6 +34,14 @@ export class EditContactItemPage {
       this.toast.show(`${item.nome} saved!`)
       this.navCtrl.setRoot('HomePage');
     });
+  }
+
+  removeItem(item: Item){
+    this.contact.removeItem(item)
+      .then(() => {
+        this.toast.show(`${item.nome} deletado!`);
+        this.navCtrl.setRoot('HomePage');
+      });
   }
 
 }

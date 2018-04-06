@@ -4,12 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ContactListService } from '../../services/contact-list/contact-list.service';
 import { ToastService } from '../../services/toast/toast.service';
 
-/**
- * Generated class for the AddContactItemPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
