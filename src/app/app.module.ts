@@ -5,6 +5,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { File } from '@ionic-native/file';
 
 import { FIREBASE_CONFIG } from './firebase.credentials';
 import { AngularFireModule } from 'angularfire2';
@@ -30,7 +32,7 @@ import { ToastService } from '../services/toast/toast.service';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen, FileChooser, File,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ContactListService,
     ToastService
