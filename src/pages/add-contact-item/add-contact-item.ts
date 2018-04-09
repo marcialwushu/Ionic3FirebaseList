@@ -6,6 +6,7 @@ import { ToastService } from '../../services/toast/toast.service';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { File } from '@ionic-native/file';
 import { Item } from './../../models/item/item.model';
+import firebase from 'firebase';
 
 
 
@@ -51,9 +52,31 @@ export class AddContactItemPage {
 
 
       this.file.resolveLocalFilesystemUrl(uri).then((newUrl)=>{
-        alert(JSON.stringify(newUrl));  
+        alert(JSON.stringify(newUrl));
+
+        let dirPath = newUrl.nativeURL;
+        let dirpathSegments = dirPath.split('/');
+        dirpathSegments.pop();
+        dirPath = dirpathSegments.join('/');
+        
+        this.file.readAsArrayBuffer(dirPath, newUrl.name).then(async (buffer)=>{
+          await this.upload(buffer, newUrl.name);
+        })
       })
     })
+  }
+
+  async upload(buffer, name){
+    let blob = new Blob([buffer], {type: "image/jpeg"});
+
+    let storage = firebase.storage();
+
+    storage.ref('iamges/' + name).put(blob).then((d)=>{
+      alert("Done");
+    }).catch((error)=>{
+      alert(JSON.stringify(error))
+    })
+    
   }
 
 }
